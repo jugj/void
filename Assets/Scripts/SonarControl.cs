@@ -19,7 +19,7 @@ public class SonarControl : MonoBehaviour{
     }
 
     void Update(){
-        audioData.Play();
+        // audioData.Play();
         head.transform.localPosition += Vector3.down * Time.deltaTime * speed * direction;
 
         Rect r = ((RectTransform)tail.transform).rect;
@@ -55,5 +55,6 @@ public class SonarControl : MonoBehaviour{
 
     public void close(){
         gameObject.SetActive(false);
+        GameManagement.player.activateMovement();
     }
 }

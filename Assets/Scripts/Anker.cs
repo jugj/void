@@ -33,11 +33,19 @@ public class Anker : MonoBehaviour{
 
         lastAngle = angle;
        
-        if((turnsRequired - turnsDone) <= 0){
-            GameManagement.isAnkerDown = true;
-             amountIndicator.GetComponent<TextMeshProUGUI>().text = "Done";
+        if(turnsDone >= turnsRequired){
+            GameManagement.isAnkerDown = !GameManagement.isAnkerDown;
+            totalAngle = 0;
+            turnsDone = 0;
+            amountIndicator.GetComponent<TextMeshProUGUI>().text = turnsRequired.ToString();
+            close();
         } else {
             amountIndicator.GetComponent<TextMeshProUGUI>().text = (turnsRequired - turnsDone).ToString();
         }
+    }
+
+    public void close(){
+        gameObject.SetActive(false);
+        GameManagement.player.activateMovement();
     }
 }

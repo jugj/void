@@ -10,8 +10,11 @@ public class BoatControl : MonoBehaviour {
 	public float maxDestDistance = 1500;
 
 	public float maxRockDistance = 75;
-	public float rockHitRadius = 10f;
+	public float boatRadius = 10f;
 	public float rockHitTime = 1.5f;
+	public int maxRockCount = 7; //30 sec
+	public float maxThrowDistance = 30; //30 sec
+	private float nextThrowTime = 30; //30 sec
 	public List<Vector3> rocks; // x distance, y angle, z moment of impact
 	public List<Vector2> leaks; // between (-4, -2.5) and (4, 2.5)
 	
@@ -38,7 +41,7 @@ public class BoatControl : MonoBehaviour {
 		rocks = new List<Vector3>();
 		leaks = new List<Vector2>();
 
-		throwRocks(3);
+		genNextThrowTime();
 	}
 
 	private void Update(){
@@ -67,7 +70,7 @@ public class BoatControl : MonoBehaviour {
 
 		for(int i = 0; i < rocks.Count; i++){
 			if(rocks[i].z <= Time.time){
-				if(rocks[i].x <= rockHitRadius){
+				if(rocks[i].x <= boatRadius){
 					Debug.Log("Hit");
 					genLeaks();
 				}
@@ -75,6 +78,10 @@ public class BoatControl : MonoBehaviour {
 				rocks.RemoveAt(i);
 				i--;
 			}
+		}
+
+		if(Time.time >= nextThrowTime){
+			throwRocks((int)(Random.value * maxRockCount));
 		}
 	}
 
@@ -100,9 +107,14 @@ public class BoatControl : MonoBehaviour {
 				Time.time + rockHitTime
 			));
 		}
+		genNextThrowTime();
 	}
 
 	void genLeaks(){
 		leaks.Add(new Vector2(Random.value * 8 - 4, Random.value * 5 - 2.5f));
+	}
+
+	void genNextThrowTime(){
+		nextThrowTime = Random.value * maxThrowDistance + Time.time;
 	}
 }

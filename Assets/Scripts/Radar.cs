@@ -18,8 +18,8 @@ public class Radar : MonoBehaviour{
     }
 
     void Update(){
-        audioData.Play();
-        circle.transform.localScale = new Vector3(1, 1, 0) * GameManagement.boat.rockHitRadius / 110 * radarRadius * 2;
+        // audioData.Play();
+        circle.transform.localScale = new Vector3(1, 1, 0) * GameManagement.boat.boatRadius / 110 * radarRadius * 2;
         float angle = GameManagement.boat.destAngle;
         float distance = GameManagement.boat.destDistance;
 
@@ -48,7 +48,8 @@ public class Radar : MonoBehaviour{
         }
         
         for(; i < rockPoints.Count; i++){
-            Destroy(rockPoints[i]);
+            if(rockPoints[i] != null)
+                Destroy(rockPoints[i]);
             rockPoints.RemoveAt(i);
         }
     }

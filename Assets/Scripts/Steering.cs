@@ -30,5 +30,6 @@ public class Steering : MonoBehaviour{
 
     public void close(){
         gameObject.SetActive(false);
+        GameManagement.player.activateMovement();
     }
 }
