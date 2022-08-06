@@ -48,12 +48,12 @@ public class PlayerControlls : MonoBehaviour{
             audioData.Stop();
         }
 
-        if(Input.getKeyDown("space")){
+        if(Input.GetKeyDown("space")){
             if(gotTape){
-
+                
             }
             else{
-                
+
             }
         }
         
