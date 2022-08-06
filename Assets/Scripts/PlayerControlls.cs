@@ -67,7 +67,11 @@ public class PlayerControlls : MonoBehaviour{
 
         if(Input.GetKeyDown("space")){
             if(gotTape){
-
+                for(int i = 0; i < GameManagement.boat.leaks.Count; i++){
+                    if(Vector3.Distance(transform.position, GameManagement.boat.leaks[i]) < stationDistance){
+                        Debug.Log("Fix");
+                    }
+                }
             }
             else{
                 if(Vector3.Distance(transform.position, steeringStation.transform.position) < stationDistance){

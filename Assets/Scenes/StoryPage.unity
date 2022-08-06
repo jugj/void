@@ -462,8 +462,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: On a simple mission to measure the seas ground our brave warrior comes
-    into a situation.
+  m_Text: You are a brave seismologist who was send on a mission to measure the seafloor
+    of the BERMUDA TRIANGLE.
 --- !u!222 &414297921
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -543,7 +543,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Help him survive.
+  m_Text: "As you try to continue with your more than important mission he is taking
+    aim to crush your little boat with giant bolders. \nThe scientific world put
+    it's hope in your success. Good Luck!"
 --- !u!222 &677111628
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -851,7 +853,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: He is trapped on his boat, while an evil Cyclope tries to get rid of him.
+  m_Text: As you enter this dangerous part of the seven seas you encounter an angry
+    cyclops who doesn't like being disturbed in his teritory.
 --- !u!222 &1722082163
 CanvasRenderer:
   m_ObjectHideFlags: 0

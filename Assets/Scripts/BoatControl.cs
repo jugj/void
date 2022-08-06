@@ -9,6 +9,7 @@ public class BoatControl : MonoBehaviour {
 	public float minDestDistance = 750;
 	public float maxDestDistance = 1500;
 
+	public int maxHits = 5;
 	public float maxRockDistance = 75;
 	public float boatRadius = 10f;
 	public float rockHitTime = 1.5f;
@@ -82,6 +83,10 @@ public class BoatControl : MonoBehaviour {
 
 		if(Time.time >= nextThrowTime){
 			throwRocks((int)(Random.value * maxRockCount));
+		}
+
+		if(maxHits <= leaks.Count){
+			Debug.Log("YOU ARE DEAD!");
 		}
 	}
 
