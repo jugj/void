@@ -13,10 +13,12 @@ public class mainMenuHandler : MonoBehaviour
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
+    public AudioSource audioData;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        audioData = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,8 @@ public class mainMenuHandler : MonoBehaviour
     public void SubmitSliderSetting()
     {
         //Displays the value of the slider in the console.
-        Debug.Log(volSlider.value);
+        audioData.volume = volSlider.value;
+        //Debug.Log(volSlider.value);
     }
 
 }
