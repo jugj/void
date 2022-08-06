@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BoatControl : MonoBehaviour {
@@ -6,6 +8,11 @@ public class BoatControl : MonoBehaviour {
 
 	public float minDestDistance = 750;
 	public float maxDestDistance = 1500;
+
+	public float maxRockDistance = 75;
+	public float rockHitRadius = 10f;
+	public float rockHitTime = 1.5f;
+	public List<Vector3> rocks; // x distance, y angle, z moment of impact
 	
 	private float _destAngle;
 	private float _destDistance;
@@ -26,6 +33,8 @@ public class BoatControl : MonoBehaviour {
 	private void Start(){
 		genNextDest();
 		GameManagement.boat = this;
+
+		throwRocks(3);
 	}
 
 	private void Update(){
@@ -38,15 +47,53 @@ public class BoatControl : MonoBehaviour {
 			_destAngle = Mathf.Atan(s/c);
 
 			if(c < 0) _destAngle += Mathf.PI;
+			
+			for(int i = 0; i < rocks.Count; i++){
+				c = Mathf.Cos(rocks[i].y) * rocks[i].x;
+				s = Mathf.Sin(rocks[i].y) * rocks[i].x;
+				c -= Mathf.Sign(direction) * speed*Time.deltaTime;
+
+				rocks[i] = new Vector3(Mathf.Sqrt(c*c + s*s), Mathf.Atan(s/c), rocks[i].z);
+
+				if(c < 0){
+					rocks[i] = new Vector3(rocks[i].x, rocks[i].y + Mathf.PI, rocks[i].z);
+				}
+			}
+		}
+
+		for(int i = 0; i < rocks.Count; i++){
+			if(rocks[i].z <= Time.time){
+				if(rocks[i].x <= rockHitRadius){
+					Debug.Log("Hit");
+				}
+				
+				rocks.RemoveAt(i);
+				i--;
+			}
 		}
 	}
 
 	public void turn(float direction){ // positive for right, negative for left
-		_destAngle -= Mathf.Sign(direction) * Mathf.Deg2Rad * turnSpeed * Time.deltaTime;
+		float turn = Mathf.Sign(direction) * Mathf.Deg2Rad * turnSpeed * Time.deltaTime;
+		_destAngle -= turn;
+
+		for(int i = 0; i < rocks.Count; i++){
+			rocks[i] = new Vector3(rocks[i].x, rocks[i].y - turn, rocks[i].z);
+		}
 	}
 
 	public void genNextDest(){
 		_destAngle = Random.value * 2 * Mathf.PI;
 		_destDistance = Random.value * (maxDestDistance - minDestDistance) + minDestDistance;
+	}
+
+	public void throwRocks(int count){
+		for(int i = 0; i < count; i++){
+			rocks.Add(new Vector3(
+				Random.value * maxRockDistance,
+				Random.value * 2 * Mathf.PI,
+				Time.time + rockHitTime
+			));
+		}
 	}
 }
