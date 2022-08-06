@@ -19,7 +19,7 @@ public class BoatControl : MonoBehaviour {
 	}
 	public float destDistance {
 		get {
-			return _destAngle;
+			return _destDistance;
 		}
 	}
 
@@ -36,11 +36,13 @@ public class BoatControl : MonoBehaviour {
 
 			_destDistance = Mathf.Sqrt(c*c + s*s);
 			_destAngle = Mathf.Atan(s/c);
+
+			if(c < 0) _destAngle += Mathf.PI;
 		}
 	}
 
 	public void turn(float direction){ // positive for right, negative for left
-		_destAngle -= Mathf.Sign(direction) * Mathf.Deg2Rad * turnSpeed;
+		_destAngle -= Mathf.Sign(direction) * Mathf.Deg2Rad * turnSpeed * Time.deltaTime;
 	}
 
 	public void genNextDest(){

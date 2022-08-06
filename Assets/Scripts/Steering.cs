@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Steering : MonoBehaviour{
     public GameObject steeringWheel;
+    public Slider speedSlider;
     private float startAngle = 0;
     private float lastAngle = 0;
 
-    public void onSpeedChange(float value){
-        GameManagement.boat.direction = value;
+    public void onSpeedChange(){
+        GameManagement.boat.direction = speedSlider.value;
     }
     
     public void onSteeringDown(){
