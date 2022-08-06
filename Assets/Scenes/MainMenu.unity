@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 27690245}
   - component: {fileID: 27690244}
   - component: {fileID: 27690243}
-  - component: {fileID: 27690242}
   m_Layer: 5
   m_Name: QuitBtn
   m_TagString: Untagged
@@ -164,18 +163,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000015259, y: -186}
   m_SizeDelta: {x: 448.73, y: 170.06}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &27690242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 27690240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab2b797602c4cc5408a3841d569c25d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &27690243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,8 +207,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 27690242}
-        m_TargetAssemblyTypeName: quitScript, Assembly-CSharp
+      - m_Target: {fileID: 1395645579}
+        m_TargetAssemblyTypeName: mainMenuHandler, Assembly-CSharp
         m_MethodName: doExitGame
         m_Mode: 1
         m_Arguments:
@@ -252,7 +239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 33875fea56ad5594faddedc1a0af8823, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -261,7 +248,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.5
 --- !u!222 &27690245
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -706,16 +693,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 763807133}
-        m_TargetAssemblyTypeName: creditsScript, Assembly-CSharp
-        m_MethodName: loadCredits
-        m_Mode: 1
+      - m_Target: {fileID: 1395645579}
+        m_TargetAssemblyTypeName: mainMenuHandler, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Scenes/Boat
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &763807135
@@ -738,7 +725,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 33875fea56ad5594faddedc1a0af8823, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -747,7 +734,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.5
 --- !u!222 &763807136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1004,8 +991,9 @@ GameObject:
   - component: {fileID: 1395645576}
   - component: {fileID: 1395645578}
   - component: {fileID: 1395645577}
+  - component: {fileID: 1395645579}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SettingsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1054,7 +1042,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f97fa0f29e50bae45a89157191a4f9ad, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1063,7 +1051,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.1
 --- !u!222 &1395645578
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1072,6 +1060,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395645575}
   m_CullTransparentMesh: 1
+--- !u!114 &1395645579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395645575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d85fea05ace694aaa71c78461e138d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Scenes/Credits
 --- !u!1 &1795058987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,16 +1234,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1976597545}
-        m_TargetAssemblyTypeName: creditsScript, Assembly-CSharp
-        m_MethodName: loadCredits
-        m_Mode: 1
+      - m_Target: {fileID: 1395645579}
+        m_TargetAssemblyTypeName: mainMenuHandler, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Scenes/Credits
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1976597543
@@ -1265,7 +1266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 33875fea56ad5594faddedc1a0af8823, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1274,7 +1275,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.5
 --- !u!222 &1976597544
 CanvasRenderer:
   m_ObjectHideFlags: 0
