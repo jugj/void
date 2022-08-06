@@ -29,10 +29,11 @@ public class randomBlink : MonoBehaviour
     {
         if(loop >= speed) {
             loop = 0;
-            if(passFail(0.5f)) {
+            bool action = passFail(0.5f);
+            if(action) {
                 indicator.GetComponent<Image>().sprite = indiGreen;
             } else {
-                 indicator.GetComponent<Image>().sprite = indiGreen;
+                 indicator.GetComponent<Image>().sprite = inidRed;
             }
         }
         loop++;
