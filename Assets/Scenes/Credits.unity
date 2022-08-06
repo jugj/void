@@ -245,8 +245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.2, y: -733.98}
-  m_SizeDelta: {x: 588.29, y: 1036.49}
+  m_AnchoredPosition: {x: 32.2, y: -903.73}
+  m_SizeDelta: {x: 588.29, y: 1376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &501868259
 MonoBehaviour:
@@ -268,8 +268,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Bermuda Measurments\nby void\n\nMade in 48h for a GameJam.\n\nIdeas by:\nJakob\nSimon\nConstantin\nName
-    4\nS\xF6ren W. Oesterwind\n\nScripting by:\nJakob \nS\xF6ren\n\nSprites by:\nSimon\nConstantin\n\nAusio
+  m_text: "Bermuda Measurments\nby void\n\nMade in 48h for a GameJam.\n\nIdeas by:\nJakob\nSimon\nConstantin\nFabian\nS\xF6ren
+    W. Oesterwind\n\nScripting by:\nJakob \nS\xF6ren\n\nSprites by:\nSimon\nConstantin\n\nAusio
     Design by:\nFabian\n\n\nThanks for playing!\n\n\nPress any key to return home"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
