@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: f97fa0f29e50bae45a89157191a4f9ad
-=======
-guid: ecbf257ef4823554eb31a14d0a2aa73a
->>>>>>> 32252d2 (Änderungen von Jakob Höroldt um 15:37:46)
+guid: 4d32d8d9697ab4a49950dc77add259d5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,11 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< HEAD
     filterMode: 0
-=======
-    filterMode: 1
->>>>>>> 32252d2 (Änderungen von Jakob Höroldt um 15:37:46)
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -52,19 +44,11 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-<<<<<<< HEAD
-  spriteMeshType: 0
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 4, y: 4, z: 4, w: 4}
-=======
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
->>>>>>> 32252d2 (Änderungen von Jakob Höroldt um 15:37:46)
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -84,7 +68,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -92,7 +76,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -129,8 +112,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-=======
->>>>>>> 32252d2 (Änderungen von Jakob Höroldt um 15:37:46)
   spriteSheet:
     serializedVersion: 2
     sprites: []
@@ -138,11 +119,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-<<<<<<< HEAD
-    internalID: 1537655665
-=======
     internalID: 0
->>>>>>> 32252d2 (Änderungen von Jakob Höroldt um 15:37:46)
     vertices: []
     indices: 
     edges: []
