@@ -12,14 +12,17 @@ public class Anker : MonoBehaviour{
     private float totalAngle = 0;
     public int turnsRequired = 10;
     private int turnsDone = 0;
+    public AudioSource audioData;
 
     public void Start() {
         amountIndicator.GetComponent<TextMeshProUGUI>().text = turnsRequired.ToString();
+        audioData = GetComponent<AudioSource>();
     }
     
     public void onSteeringDown(){
         Vector2 dir = Input.mousePosition - steeringWheel.transform.position;
         startAngle = -Mathf.Sign(dir.x) * Vector2.Angle(Vector2.up, dir) - startAngle;
+        audioData.Play();
     }
 
     public void onSteeringTurn(){
