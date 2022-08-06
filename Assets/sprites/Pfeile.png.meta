@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 3b2b1370c3962c347ae8bfd075fc7c4f
+=======
+guid: 04e41e70cf5ec364b981ca661da2b31e
+>>>>>>> a55ab21 (Consti 18:03 6.8.22)
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +37,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: 1
+>>>>>>> a55ab21 (Consti 18:03 6.8.22)
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -76,6 +84,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -112,6 +121,8 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+>>>>>>> a55ab21 (Consti 18:03 6.8.22)
   spriteSheet:
     serializedVersion: 2
     sprites: []

@@ -976,6 +976,7 @@ MonoBehaviour:
   destPointText: {fileID: 291071091}
   rockPointPrefab: {fileID: 5829764487121804969, guid: 6d87375155c8b7045ae119bd26ed4114, type: 3}
   circle: {fileID: 781351910}
+  audioData: {fileID: 0}
 --- !u!1 &609832163
 GameObject:
   m_ObjectHideFlags: 0
