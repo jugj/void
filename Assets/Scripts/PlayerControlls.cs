@@ -55,5 +55,12 @@ public class PlayerControlls : MonoBehaviour{
         transform.localPosition += movement * speed * Time.deltaTime;
         
     }
+<<<<<<< HEAD
     
+=======
+
+    void disableMovement(){
+        
+    }
+>>>>>>> a01ec1a (Änderungen von Jakob Höroldt um 17:03:38)
 }
