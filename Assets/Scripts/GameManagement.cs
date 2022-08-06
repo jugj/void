@@ -7,4 +7,5 @@ public static class GameManagement{
     public static PlayerControlls player;
     public static int score;
     public static bool isAnkerDown;
+    public static float globalMusicVolume = 1f;
 }

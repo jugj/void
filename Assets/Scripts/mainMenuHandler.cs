@@ -39,6 +39,7 @@ public class mainMenuHandler : MonoBehaviour
     {
         //Displays the value of the slider in the console.
         audioData.volume = volSlider.value;
+        GameManagement.globalMusicVolume = volSlider.value;
         //Debug.Log(volSlider.value);
     }
 
