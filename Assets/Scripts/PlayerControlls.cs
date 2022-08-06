@@ -9,7 +9,6 @@ public class PlayerControlls : MonoBehaviour{
     public AudioClip laufenS;
     public AudioClip dieS;
     public AudioClip hitS;
-    public AudioClip currentClip;
 
     void Start()
     {
@@ -39,13 +38,11 @@ public class PlayerControlls : MonoBehaviour{
             spriteRenderer.flipX = false;
             
         }
-        if(Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d"))
-        {
+        if(Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d")){
             //audioData.loop = true;
             audioData.Play();
         }
-        if(Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d"))
-        {
+        if(Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d")){
             //audioData.loop = false;
             audioData.Stop();
         }
@@ -55,12 +52,8 @@ public class PlayerControlls : MonoBehaviour{
         transform.localPosition += movement * speed * Time.deltaTime;
         
     }
-<<<<<<< HEAD
     
-=======
-
     void disableMovement(){
         
     }
->>>>>>> a01ec1a (Änderungen von Jakob Höroldt um 17:03:38)
 }
