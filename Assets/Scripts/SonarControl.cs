@@ -54,6 +54,10 @@ public class SonarControl : MonoBehaviour{
     }
 
     public void close(){
+        head.transform.localPosition = Vector3.down * 10;
+        Rect r = ((RectTransform)tail.transform).rect;
+        ((RectTransform)tail.transform).sizeDelta = new Vector2(r.width, -((RectTransform)head.transform).anchoredPosition.y);
+
         gameObject.SetActive(false);
         GameManagement.player.activateMovement();
     }
