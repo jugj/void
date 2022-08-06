@@ -42,7 +42,7 @@ public class textAnimator : MonoBehaviour
             text5.GetComponent<Text>().color = Color.Lerp(text5.GetComponent<Text>().color, newColor, fadeTime * Time.deltaTime);
         }
 
-        if(timey > delay) {
+        if(timey > delay/2) {
             if(Input.GetKeyDown(KeyCode.Space)) {
                 Debug.Log("Next scene");
                 SceneManager.LoadScene("Scenes/Boat", LoadSceneMode.Single);
