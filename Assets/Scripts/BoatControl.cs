@@ -13,6 +13,7 @@ public class BoatControl : MonoBehaviour {
 	public float rockHitRadius = 10f;
 	public float rockHitTime = 1.5f;
 	public List<Vector3> rocks; // x distance, y angle, z moment of impact
+	public List<Vector2> leaks; // between (-4, -2.5) and (4, 2.5)
 	
 	private float _destAngle;
 	private float _destDistance;
@@ -33,6 +34,9 @@ public class BoatControl : MonoBehaviour {
 	private void Start(){
 		genNextDest();
 		GameManagement.boat = this;
+
+		rocks = new List<Vector3>();
+		leaks = new List<Vector2>();
 
 		throwRocks(3);
 	}
@@ -95,5 +99,9 @@ public class BoatControl : MonoBehaviour {
 				Time.time + rockHitTime
 			));
 		}
+	}
+
+	void genLeaks(){
+		leaks.Add(new Vector2(Random.value * 8 - 4, Random.value * 5 - 2.5f));
 	}
 }

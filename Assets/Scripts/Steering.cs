@@ -27,4 +27,8 @@ public class Steering : MonoBehaviour{
         GameManagement.boat.turn(lastAngle - angle);
         lastAngle = angle;
     }
+
+    public void close(){
+        gameObject.SetActive(false);
+    }
 }
