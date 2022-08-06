@@ -10,13 +10,16 @@ public class SonarControl : MonoBehaviour{
     public float minNeededDepth = 95;
     public float maxDepth = 99;
     public float speed = 10;
+    public AudioSource audioData;
 
     float direction = 1;
     void Start(){
         lamp.color = Color.red;
+        audioData = GetComponent<AudioSource>();
     }
 
     void Update(){
+        audioData.Play();
         head.transform.localPosition += Vector3.down * Time.deltaTime * speed * direction;
 
         Rect r = ((RectTransform)tail.transform).rect;
