@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class textScroller : MonoBehaviour
 {
@@ -15,5 +16,8 @@ public class textScroller : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up * Time.deltaTime * speed, Space.World);
+        if(Input.anyKey) {
+            SceneManager.LoadScene("Scenes/MainMenu", LoadSceneMode.Single);
+        }
     }
 }

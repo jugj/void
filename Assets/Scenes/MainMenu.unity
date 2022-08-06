@@ -1195,6 +1195,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Scenes/Credits
+  cursorTexture: {fileID: 2800000, guid: 7b71b4c369ec7a841a7f1d60b4c3dcae, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!1 &1795058987
 GameObject:
   m_ObjectHideFlags: 0
