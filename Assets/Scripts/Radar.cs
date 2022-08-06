@@ -10,12 +10,15 @@ public class Radar : MonoBehaviour{
     public TMP_Text destPointText;
     public GameObject rockPointPrefab;
     public GameObject circle;
+    public AudioSource audioData;
 
     void Start(){
         rockPoints = new List<GameObject>();
+        audioData = GetComponent<AudioSource>();
     }
 
     void Update(){
+        audioData.Play();
         circle.transform.localScale = new Vector3(1, 1, 0) * GameManagement.boat.rockHitRadius / 110 * radarRadius * 2;
         float angle = GameManagement.boat.destAngle;
         float distance = GameManagement.boat.destDistance;
