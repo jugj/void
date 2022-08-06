@@ -10,6 +10,8 @@ public class PlayerControlls : MonoBehaviour{
     public AudioClip dieS;
     public AudioClip hitS;
 
+    private bool gotTape = false; 
+
     void Start()
     {
         GameManagement.player = this;
@@ -38,13 +40,21 @@ public class PlayerControlls : MonoBehaviour{
             spriteRenderer.flipX = false;
             
         }
-        if(Input.GetKeyDown("w") || Input.GetKeyDown("a") || Input.GetKeyDown("s") || Input.GetKeyDown("d")){
-            //audioData.loop = true;
-            audioData.Play();
+        if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")){
+            if(!audioData.isPlaying)
+                audioData.Play();
         }
-        if(Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d")){
-            //audioData.loop = false;
+        else if(Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d")){
             audioData.Stop();
+        }
+
+        if(Input.getKeyDown("space")){
+            if(gotTape){
+
+            }
+            else{
+                
+            }
         }
         
         movement.Normalize();
@@ -52,7 +62,7 @@ public class PlayerControlls : MonoBehaviour{
         transform.localPosition += movement * speed * Time.deltaTime;
         
     }
-    
+
     void disableMovement(){
         
     }

@@ -69,6 +69,7 @@ public class BoatControl : MonoBehaviour {
 			if(rocks[i].z <= Time.time){
 				if(rocks[i].x <= rockHitRadius){
 					Debug.Log("Hit");
+					genLeaks();
 				}
 				
 				rocks.RemoveAt(i);
