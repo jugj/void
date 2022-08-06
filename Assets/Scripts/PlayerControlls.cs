@@ -50,10 +50,10 @@ public class PlayerControlls : MonoBehaviour{
 
         if(Input.GetKeyDown("space")){
             if(gotTape){
-                
+
             }
             else{
-
+                
             }
         }
         
