@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 33875fea56ad5594faddedc1a0af8823
+=======
+guid: e3e4f782ead9f434aa7d3cf88c0dc837
+>>>>>>> eda4d08 (Posted by Fabian Jahnke at 16:20:11 add WalkingSound & sound files)
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +37,11 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+    filterMode: 1
+>>>>>>> eda4d08 (Posted by Fabian Jahnke at 16:20:11 add WalkingSound & sound files)
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +56,11 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
+<<<<<<< HEAD
   spriteBorder: {x: 3, y: 3, z: 3, w: 3}
+=======
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+>>>>>>> eda4d08 (Posted by Fabian Jahnke at 16:20:11 add WalkingSound & sound files)
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -76,6 +88,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -112,6 +125,8 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+>>>>>>> eda4d08 (Posted by Fabian Jahnke at 16:20:11 add WalkingSound & sound files)
   spriteSheet:
     serializedVersion: 2
     sprites: []
@@ -119,7 +134,11 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
+<<<<<<< HEAD
     internalID: 1537655665
+=======
+    internalID: 0
+>>>>>>> eda4d08 (Posted by Fabian Jahnke at 16:20:11 add WalkingSound & sound files)
     vertices: []
     indices: 
     edges: []
