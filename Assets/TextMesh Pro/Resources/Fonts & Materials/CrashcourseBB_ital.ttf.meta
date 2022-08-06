@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: feff1e873d32685429a6d4bee5af71c8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Crashcourse BB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: aa9b39ed40e79c246ad35e66e3ecb7fb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
