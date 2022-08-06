@@ -11,9 +11,10 @@ public class Anker : MonoBehaviour{
     private float lastAngle = 0;
     private float totalAngle = 0;
     public int turnsRequired = 10;
+    private int turnsDone = 0;
 
     public void Start() {
-    amountIndicator.GetComponent<TextMeshProUGUI>().text = turnsRequired.ToString();
+        amountIndicator.GetComponent<TextMeshProUGUI>().text = turnsRequired.ToString();
     }
     
     public void onSteeringDown(){
@@ -27,12 +28,16 @@ public class Anker : MonoBehaviour{
         float angle = -Mathf.Sign(dir.x) * Vector2.Angle(Vector2.up, dir) - startAngle;
         steeringWheel.transform.eulerAngles = new Vector3(0, 0, angle);
         
-        totalAngle += angle;
-        Debug.Log(totalAngle);
-        if(totalAngle > 2 * turnsRequired * Mathf.PI) {
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        }
+        totalAngle += Mathf.Abs(angle - lastAngle);
+        turnsDone = (int) Mathf.Round((totalAngle / (2 * Mathf.PI))/ 114);
+
         lastAngle = angle;
-        
+       
+        if((turnsRequired - turnsDone) <= 0){
+            GameManagement.isAnkerDown = true;
+             amountIndicator.GetComponent<TextMeshProUGUI>().text = "Done";
+        } else {
+            amountIndicator.GetComponent<TextMeshProUGUI>().text = (turnsRequired - turnsDone).ToString();
+        }
     }
 }
