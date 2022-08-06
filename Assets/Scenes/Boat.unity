@@ -1109,10 +1109,11 @@ MonoBehaviour:
   turnSpeed: 90
   minDestDistance: 50
   maxDestDistance: 100
+  maxHits: 5
   maxRockDistance: 75
   boatRadius: 10
-  rockHitTime: 2
-  maxRockCount: 7
+  rockHitTime: 5
+  maxRockCount: 10
   maxThrowDistance: 30
   rocks: []
   leaks: []
@@ -3824,6 +3825,8 @@ MonoBehaviour:
   steeringMenu: {fileID: 1059227150}
   sonarMenu: {fileID: 1025254187}
   anchorMenu: {fileID: 692875735}
+  fixTime: 2
+  slowfixTime: 4
 --- !u!58 &1752277632
 CircleCollider2D:
   m_ObjectHideFlags: 0

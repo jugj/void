@@ -24,6 +24,10 @@ public class PlayerControlls : MonoBehaviour{
     private bool gotTape = false; 
     private bool canMove = true;
 
+    float fixingDoneTime = -1;
+    public float fixTime = 2;
+    public float slowfixTime = 4; 
+
     void Start()
     {
         GameManagement.player = this;
@@ -63,38 +67,53 @@ public class PlayerControlls : MonoBehaviour{
             
             movement.Normalize();
             transform.localPosition += movement * speed * Time.deltaTime;
-        }
 
-        if(Input.GetKeyDown("space")){
-            if(gotTape){
-                for(int i = 0; i < GameManagement.boat.leaks.Count; i++){
-                    if(Vector3.Distance(transform.position, GameManagement.boat.leaks[i]) < stationDistance){
-                        Debug.Log("Fix");
+            if(Input.GetKeyDown("space")){
+                if(gotTape){
+                    for(int i = 0; i < GameManagement.boat.leaks.Count; i++){
+                        if(Vector3.Distance(transform.position, GameManagement.boat.leaks[i]) < stationDistance){
+                            Debug.Log("Fix");
+                            fixingDoneTime = Time.time;
+                            if(GameManagement.boat.direction == 0)
+                                fixingDoneTime += fixTime;
+                            else
+                                fixingDoneTime += slowfixTime;
+
+                            GameManagement.boat.leaks.RemoveAt(i);
+                            canMove = false;
+                            break;
+                        }
+                    }
+                }
+                else{
+                    if(Vector3.Distance(transform.position, steeringStation.transform.position) < stationDistance){
+                        if(!GameManagement.isAnkerDown){
+                            steeringMenu.SetActive(true);
+                            canMove = false;
+                        }
+                    }
+                    else if(Vector3.Distance(transform.position, sonarStation.transform.position) < stationDistance){
+                        if(GameManagement.isAnkerDown && GameManagement.boat.destDistance <= GameManagement.boat.boatRadius){
+                            sonarMenu.SetActive(true);
+                            canMove = false;
+                        }
+                    }
+                    else if(Vector3.Distance(transform.position, anchorStation.transform.position) < stationDistance){
+                        if(GameManagement.boat.direction == 0){
+                            anchorMenu.SetActive(true);
+                            canMove = false;
+                        }
+                    }
+                    else if(Vector3.Distance(transform.position, tapeStation.transform.position) < stationDistance){
+                        gotTape = !gotTape;
                     }
                 }
             }
-            else{
-                if(Vector3.Distance(transform.position, steeringStation.transform.position) < stationDistance){
-                    if(!GameManagement.isAnkerDown){
-                        steeringMenu.SetActive(true);
-                        canMove = false;
-                    }
-                }
-                else if(Vector3.Distance(transform.position, sonarStation.transform.position) < stationDistance){
-                    if(GameManagement.isAnkerDown && GameManagement.boat.destDistance <= GameManagement.boat.boatRadius){
-                        sonarMenu.SetActive(true);
-                        canMove = false;
-                    }
-                }
-                else if(Vector3.Distance(transform.position, anchorStation.transform.position) < stationDistance){
-                    if(GameManagement.boat.direction == 0){
-                        anchorMenu.SetActive(true);
-                        canMove = false;
-                    }
-                }
-                else if(Vector3.Distance(transform.position, tapeStation.transform.position) < stationDistance){
-                    gotTape = !gotTape;
-                }
+        }
+        else{
+            if(fixingDoneTime > 0 && Time.time >= fixingDoneTime){
+                fixingDoneTime = -1;
+                canMove = true;
             }
         }
     }

@@ -121,5 +121,7 @@ public class BoatControl : MonoBehaviour {
 
 	void genNextThrowTime(){
 		nextThrowTime = Random.value * maxThrowDistance + Time.time;
+
+		// Debug.Log(nextThrowTime);
 	}
 }
