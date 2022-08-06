@@ -1,5 +1,21 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 7b71b4c369ec7a841a7f1d60b4c3dcae
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+guid: 7b71b4c369ec7a841a7f1d60b4c3dcae
+=======
+guid: fd991c62259558140ad1d07183e501a4
+>>>>>>> a0f9938 (Änderungen von Simon um 14:35:56)
+=======
+guid: b1d48f6d27e5f3749ac584823f11f524
+>>>>>>> eda4d08 (Posted by Fabian Jahnke at 16:20:11 add WalkingSound & sound files)
+=======
+guid: a9bb99e8c08a1ce49ba95f0d58dc6139
+>>>>>>> 3641db9 (Änderungen von Consti um 16:34:22)
+>>>>>>> 44b64fa (Änderungen von Consti um 16:59:26)
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
