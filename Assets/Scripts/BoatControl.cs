@@ -79,11 +79,13 @@ public class BoatControl : MonoBehaviour {
 			}
 		}
 
+		int thisTurnHits = 0;
 		for(int i = 0; i < rocks.Count; i++){
 			if(rocks[i].z <= Time.time){
-				if(rocks[i].x <= boatRadius){
+				if(rocks[i].x <= boatRadius && thisTurnHits < maxHits){
 					Debug.Log("Hit");
 					genLeaks();
+					thisTurnHits++;
 				}
 				
 				rocks.RemoveAt(i);
