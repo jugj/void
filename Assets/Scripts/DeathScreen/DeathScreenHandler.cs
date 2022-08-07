@@ -14,7 +14,7 @@ public class DeathScreenHandler : MonoBehaviour
     {
         
         points1.GetComponent<TextMeshProUGUI>().text = GameManagement.score.ToString();
-        holes.GetComponent<TextMeshProUGUI>().text = "A lot";
+        // holes.GetComponent<TextMeshProUGUI>().text = GameManagement;
     }
 
     // Update is called once per frame

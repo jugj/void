@@ -19,6 +19,7 @@ public class mainMenuHandler : MonoBehaviour
     {
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
         audioData = GetComponent<AudioSource>();
+        volSlider.value = GameManagement.globalMusicVolume;
     }
 
     // Update is called once per frame
