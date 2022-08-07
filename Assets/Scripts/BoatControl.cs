@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoatControl : MonoBehaviour {
 	public float speed = 15; // ca. 30 kn
@@ -87,6 +88,8 @@ public class BoatControl : MonoBehaviour {
 
 		if(maxHits <= leaks.Count){
 			Debug.Log("YOU ARE DEAD!");
+			SceneManager.LoadScene("Scenes/Death", LoadSceneMode.Single);
+
 		}
 	}
 
