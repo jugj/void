@@ -81,9 +81,18 @@ public class PlayerControlls : MonoBehaviour{
             transform.localPosition += movement * speed * Time.deltaTime;
 
             if(Input.GetKeyDown("space")){
-                if(gotTape){
+                if(Vector3.Distance(transform.position, tapeStation.transform.position) < stationDistance){
+                    gotTape = !gotTape;
+                    
+                    if(gotTape)
+                        animator.SetInteger("anim", 2);
+                    else
+                        animator.SetInteger("anim", 0);
+                }
+                else if(gotTape){
+                    Info.showInfo("Here is no leak to fix");
                     for(int i = 0; i < GameManagement.boat.leaks.Count; i++){
-                        if(Vector3.Distance(transform.position, GameManagement.boat.leaks[i]) < stationDistance){
+                        if(Vector2.Distance(transform.position, GameManagement.boat.leaks[i] - Vector2.left * 1.65f) < stationDistance){
                             Debug.Log("Fix");
                             fixingDoneTime = Time.time;
                             if(GameManagement.boat.direction == 0)
@@ -94,10 +103,10 @@ public class PlayerControlls : MonoBehaviour{
                             GameManagement.boat.leaks.RemoveAt(i);
                             canMove = false;
                             animator.SetInteger("anim", 4);
+                            Info.showInfo("");
                             break;
                         }
                     }
-                    Info.showInfo("Here is no leak to fix");
                 }
                 else{
                     if(Vector3.Distance(transform.position, steeringStation.transform.position) < stationDistance){
@@ -142,10 +151,6 @@ public class PlayerControlls : MonoBehaviour{
 
                 animator.SetInteger("anim", 2);
             }
-        }
-
-        if(Vector3.Distance(transform.position, tapeStation.transform.position) < stationDistance){
-            gotTape = !gotTape;
         }
     }
 
