@@ -8,4 +8,5 @@ public static class GameManagement{
     public static int score;
     public static bool isAnkerDown;
     public static float globalMusicVolume = 1f;
+    public static int wholeHoleCount = 0;
 }

@@ -117,6 +117,7 @@ public class BoatControl : MonoBehaviour {
 
 	void genLeaks(){
 		leaks.Add(new Vector2(Random.value * 8 - 4, Random.value * 5 - 2.5f));
+		GameManagement.wholeHoleCount++;
 	}
 
 	void genNextThrowTime(){
