@@ -10,6 +10,7 @@ public class Steering : MonoBehaviour{
     private float lastAngle = 0;
 
     public void onSpeedChange(){
+        speedSlider.value = Mathf.Round(speedSlider.value);
         GameManagement.boat.direction = speedSlider.value;
     }
     

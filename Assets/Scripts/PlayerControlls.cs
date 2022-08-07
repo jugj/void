@@ -91,17 +91,29 @@ public class PlayerControlls : MonoBehaviour{
                             steeringMenu.SetActive(true);
                             canMove = false;
                         }
+                        else{
+                            Info.showInfo("Steering\nI need to crank the Anchor up");
+                        }
                     }
                     else if(Vector3.Distance(transform.position, sonarStation.transform.position) < stationDistance){
                         if(GameManagement.isAnkerDown && GameManagement.boat.destDistance <= GameManagement.boat.boatRadius){
                             sonarMenu.SetActive(true);
                             canMove = false;
                         }
+                        else{
+                            if(GameManagement.isAnkerDown){
+                                Info.showInfo("Sonar\nI am currently not at the destination");
+                            }
+                            Info.showInfo("Sonar\nI need to let the Anchor down");
+                        }
                     }
                     else if(Vector3.Distance(transform.position, anchorStation.transform.position) < stationDistance){
                         if(GameManagement.boat.direction == 0){
                             anchorMenu.SetActive(true);
                             canMove = false;
+                        }
+                        else{
+                            Info.showInfo("Anchor\nI need to stop the boat");
                         }
                     }
                     else if(Vector3.Distance(transform.position, tapeStation.transform.position) < stationDistance){
