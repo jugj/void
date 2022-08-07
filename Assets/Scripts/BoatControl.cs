@@ -10,6 +10,9 @@ public class BoatControl : MonoBehaviour {
 	public float minDestDistance = 750;
 	public float maxDestDistance = 1500;
 
+	public float rockScoreModifier = 1;
+	public float rockDistanceModifier = 1;
+
 	public int maxHits = 5;
 	public float maxRockDistance = 75;
 	public float boatRadius = 10f;
@@ -45,6 +48,7 @@ public class BoatControl : MonoBehaviour {
 		leaks = new List<Vector2>();
 
 		genNextThrowTime();
+		nextThrowTime += 10;
 	}
 
 	private void Update(){
@@ -127,7 +131,9 @@ public class BoatControl : MonoBehaviour {
 
 	void genNextThrowTime(){
 		nextThrowTime = Random.value * maxThrowDistance + Time.time;
-
-		// Debug.Log(nextThrowTime);
+		if((GameManagement.score * rockScoreModifier) * (destDistance * rockDistanceModifier) != 0){
+			Mathf.Pow(nextThrowTime, 1/(GameManagement.score * rockScoreModifier));
+			Mathf.Pow(nextThrowTime, 1/(destDistance * rockDistanceModifier));
+		}
 	}
 }
