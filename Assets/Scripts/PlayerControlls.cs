@@ -21,6 +21,7 @@ public class PlayerControlls : MonoBehaviour{
 	public GameObject sonarMenu;
 	public GameObject anchorMenu;
 
+    private Animator animator;
     private bool gotTape = false; 
     private bool canMove = true;
 
@@ -32,6 +33,7 @@ public class PlayerControlls : MonoBehaviour{
     {
         GameManagement.player = this;
         audioData = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
     void Update(){
@@ -60,9 +62,19 @@ public class PlayerControlls : MonoBehaviour{
             if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")){
                 if(!audioData.isPlaying)
                     audioData.Play();
+                
+                if(gotTape)
+                    animator.SetInteger("anim", 3);
+                else
+                    animator.SetInteger("anim", 1);
             }
             else if(Input.GetKeyUp("w") || Input.GetKeyUp("a") || Input.GetKeyUp("s") || Input.GetKeyUp("d")){
                 audioData.Stop();
+
+                if(gotTape)
+                    animator.SetInteger("anim", 2);
+                else
+                    animator.SetInteger("anim", 0);
             }
             
             movement.Normalize();
@@ -81,6 +93,7 @@ public class PlayerControlls : MonoBehaviour{
 
                             GameManagement.boat.leaks.RemoveAt(i);
                             canMove = false;
+                            animator.SetInteger("anim", 4);
                             break;
                         }
                     }
@@ -105,7 +118,9 @@ public class PlayerControlls : MonoBehaviour{
                             if(GameManagement.isAnkerDown){
                                 Info.showInfo("Sonar\nI am currently not at the destination");
                             }
-                            Info.showInfo("Sonar\nI need to let the Anchor down");
+                            else{
+                                Info.showInfo("Sonar\nI need to let the Anchor down");
+                            }
                         }
                     }
                     else if(Vector3.Distance(transform.position, anchorStation.transform.position) < stationDistance){
@@ -117,9 +132,6 @@ public class PlayerControlls : MonoBehaviour{
                             Info.showInfo("Anchor\nI need to stop the boat");
                         }
                     }
-                    else if(Vector3.Distance(transform.position, tapeStation.transform.position) < stationDistance){
-                        gotTape = !gotTape;
-                    }
                 }
             }
         }
@@ -127,7 +139,13 @@ public class PlayerControlls : MonoBehaviour{
             if(fixingDoneTime > 0 && Time.time >= fixingDoneTime){
                 fixingDoneTime = -1;
                 canMove = true;
+
+                animator.SetInteger("anim", 2);
             }
+        }
+
+        if(Vector3.Distance(transform.position, tapeStation.transform.position) < stationDistance){
+            gotTape = !gotTape;
         }
     }
 
