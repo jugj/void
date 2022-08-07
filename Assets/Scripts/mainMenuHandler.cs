@@ -25,14 +25,23 @@ public class mainMenuHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void doExitGame() {
+    public void doExitGame()
+    {
         Application.Quit();
     }
 
-    public void loadScene(string sceneToLoad) {
+    public void resetGameData()
+    {
+        GameManagement.score = 0;
+        GameManagement.wholeHoleCount = 0;
+        GameManagement.isAnkerDown = false;
+
+    }
+    public void loadScene(string sceneToLoad)
+    {
         SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
     }
 
