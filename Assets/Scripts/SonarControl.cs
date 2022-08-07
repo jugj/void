@@ -58,6 +58,7 @@ public class SonarControl : MonoBehaviour{
         ((RectTransform)head.transform).anchoredPosition = Vector3.down * 10;
         Rect r = ((RectTransform)tail.transform).rect;
         ((RectTransform)tail.transform).sizeDelta = new Vector2(r.width, -((RectTransform)head.transform).anchoredPosition.y);
+        lamp.color = Color.red;
 
         gameObject.SetActive(false);
         GameManagement.player.activateMovement();

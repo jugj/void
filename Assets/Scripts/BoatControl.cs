@@ -15,6 +15,7 @@ public class BoatControl : MonoBehaviour {
 	public float boatRadius = 10f;
 	public float rockHitTime = 1.5f;
 	public int maxRockCount = 7; //30 sec
+	public float minThrowDistance = 10; //30 sec
 	public float maxThrowDistance = 30; //30 sec
 	private float nextThrowTime = 30; //30 sec
 	public List<Vector3> rocks; // x distance, y angle, z moment of impact
