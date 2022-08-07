@@ -17,7 +17,8 @@ public class BoatControl : MonoBehaviour {
 	public float maxRockDistance = 75;
 	public float boatRadius = 10f;
 	public float rockHitTime = 1.5f;
-	public int maxRockCount = 7; //30 sec
+	public int minRockCount = 3;
+	public int maxRockCount = 7;
 	public float minThrowDistance = 10; //30 sec
 	public float maxThrowDistance = 30; //30 sec
 	private float nextThrowTime = 30; //30 sec
@@ -50,7 +51,7 @@ public class BoatControl : MonoBehaviour {
 		leaks = new List<Vector2>();
 
 		genNextThrowTime();
-		nextThrowTime += 10;
+		nextThrowTime += 5;
 		audioData = GetComponent<AudioSource>();
 	}
 
@@ -91,7 +92,7 @@ public class BoatControl : MonoBehaviour {
 		}
 
 		if(Time.time >= nextThrowTime){
-			throwRocks((int)(Random.value * maxRockCount));
+			throwRocks((int)(Random.value * (maxRockCount-minRockCount) + minRockCount));
 		}
 
 		if(maxHits <= leaks.Count){
@@ -113,6 +114,12 @@ public class BoatControl : MonoBehaviour {
 	public void genNextDest(){
 		_destAngle = Random.value * 2 * Mathf.PI;
 		_destDistance = Random.value * (maxDestDistance - minDestDistance) + minDestDistance;
+
+		if(GameManagement.score > 1){
+			maxRockDistance *= 1 - 1/GameManagement.score;
+			minRockCount++;
+			maxRockCount++;
+		}
 	}
 
 	public void throwRocks(int count){
@@ -121,6 +128,13 @@ public class BoatControl : MonoBehaviour {
 			rocks.Add(new Vector3(
 				Random.value * maxRockDistance,
 				Random.value * 2 * Mathf.PI,
+				Time.time + rockHitTime
+			));
+		}
+		for(int i = 0; i < GameManagement.score; i++){
+			rocks.Add(new Vector3(
+				Random.value * maxRockDistance,
+				Random.value * 0.5f * Mathf.PI - 0.25f * Mathf.PI + (direction < 0 ? Mathf.PI : 0),
 				Time.time + rockHitTime
 			));
 		}
@@ -135,9 +149,9 @@ public class BoatControl : MonoBehaviour {
 
 	void genNextThrowTime(){
 		nextThrowTime = Random.value * (maxThrowDistance - minThrowDistance) + minThrowDistance;
-
-		Mathf.Pow(nextThrowTime, 1/(GameManagement.score * rockScoreModifier));
-		Mathf.Pow(nextThrowTime, 1/(destDistance * rockDistanceModifier));
+		
+		if(destDistance > minDestDistance) nextThrowTime /= rockDistanceModifier;
+		nextThrowTime /= GameManagement.score * rockScoreModifier;
 
 		if(nextThrowTime < minThrowDistance) nextThrowTime = minThrowDistance;
 		else if(nextThrowTime > maxThrowDistance) nextThrowTime = maxThrowDistance;
