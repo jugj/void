@@ -18,10 +18,12 @@ public class mainMenuHandler : MonoBehaviour
     public SpriteRenderer curtain;
 
     public Color newColor;
+    private bool joinDone = false;
     public float fadeSpeed = 0.2f;
     public float transStay = 2;
 
     private bool trans = false;
+    private int rounds = 0;
     // Start is called before the first frame update
     void Start()
     {
