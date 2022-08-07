@@ -134,10 +134,12 @@ public class BoatControl : MonoBehaviour {
 	}
 
 	void genNextThrowTime(){
-		nextThrowTime = Random.value * maxThrowDistance + Time.time;
+		nextThrowTime = Random.value * maxThrowDistance;
 		if((GameManagement.score * rockScoreModifier) * (destDistance * rockDistanceModifier) != 0){
 			Mathf.Pow(nextThrowTime, 1/(GameManagement.score * rockScoreModifier));
 			Mathf.Pow(nextThrowTime, 1/(destDistance * rockDistanceModifier));
 		}
+
+		nextThrowTime += Time.time;
 	}
 }
