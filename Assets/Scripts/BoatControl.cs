@@ -23,6 +23,8 @@ public class BoatControl : MonoBehaviour {
 	private float nextThrowTime = 30; //30 sec
 	public List<Vector3> rocks; // x distance, y angle, z moment of impact
 	public List<Vector2> leaks; // between (-4, -2.5) and (4, 2.5)
+
+	private AudioSource audioData;
 	
 	private float _destAngle;
 	private float _destDistance;
@@ -49,6 +51,7 @@ public class BoatControl : MonoBehaviour {
 
 		genNextThrowTime();
 		nextThrowTime += 10;
+		audioData = GetComponent<AudioSource>();
 	}
 
 	private void Update(){
@@ -125,6 +128,7 @@ public class BoatControl : MonoBehaviour {
 	}
 
 	void genLeaks(){
+		audioData.Play();
 		leaks.Add(new Vector2(Random.value * 8 - 4, Random.value * 5 - 2.5f));
 		GameManagement.wholeHoleCount++;
 	}
