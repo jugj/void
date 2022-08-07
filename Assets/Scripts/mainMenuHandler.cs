@@ -14,6 +14,14 @@ public class mainMenuHandler : MonoBehaviour
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
     public AudioSource audioData;
+
+    public SpriteRenderer curtain;
+
+    public Color newColor;
+    public float fadeSpeed = 0.2f;
+    public float transStay = 2;
+
+    private bool trans = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +33,9 @@ public class mainMenuHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(trans) {
+            curtain.color = Color.Lerp(curtain.color, newColor, fadeSpeed * Time.deltaTime);
+        }
     }
 
     public void doExitGame()
@@ -40,9 +50,27 @@ public class mainMenuHandler : MonoBehaviour
         GameManagement.isAnkerDown = false;
 
     }
-    public void loadScene(string sceneToLoad)
+
+    public void loadSceneWithFixedDelay(string sceneToLoad) {
+        loadScene(sceneToLoad, transStay);
+    }
+    public void loadScene(string sceneToLoad, float delay)
     {
+        Debug.Log("Loading scene after delay"); 
+        StartCoroutine(loadSceneAfterWait(sceneToLoad, delay));
+    }
+
+    IEnumerator loadSceneAfterWait(string sceneToLoad, float delay)
+    {
+        yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Single);
+    }
+
+    public void transitionOut()
+    {
+        Debug.Log("TRANSITION");
+        curtain.color = Color.Lerp(curtain.color, newColor, fadeSpeed * Time.deltaTime);
+        trans = true;
     }
 
     public void SubmitSliderSetting()

@@ -10,6 +10,9 @@ public class DeathScreenHandler : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject points1, holes, backHome;
+    public Color newColor;
+    public float fadeSpeed = 0.2f;
+    public GameObject curtain;
     void Start()
     {
         
@@ -20,7 +23,9 @@ public class DeathScreenHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        curtain.GetComponent<Image>().color = Color.Lerp(curtain.GetComponent<Image>().color, newColor, fadeSpeed * Time.deltaTime);
+        points1.GetComponent<TextMeshProUGUI>().text = GameManagement.score.ToString();
+        holes.GetComponent<TextMeshProUGUI>().text = GameManagement.wholeHoleCount.ToString();
     }
 
     public void handleBackButton() {
