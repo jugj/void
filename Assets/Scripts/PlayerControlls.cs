@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerControlls : MonoBehaviour{
     public float speed = 4;
+    public List<AudioSource> audios;
     public SpriteRenderer spriteRenderer;
-    public AudioSource audioData;
-    public AudioClip laufenS;
-    public AudioClip dieS;
-    public AudioClip hitS;
+    private AudioSource audioData;
+    public AudioClip walkS;
+    public AudioClip repairS;
 
     public float stationDistance = 0.5f;
 
@@ -61,7 +61,8 @@ public class PlayerControlls : MonoBehaviour{
             }
             if(Input.GetKey("w") || Input.GetKey("a") || Input.GetKey("s") || Input.GetKey("d")){
                 if(!audioData.isPlaying)
-                    audioData.Play();
+                    playAudio(walkS);
+                    
                 
                 if(gotTape)
                     animator.SetInteger("anim", 3);
@@ -93,6 +94,7 @@ public class PlayerControlls : MonoBehaviour{
                     Info.showInfo("Here is no leak to fix");
                     for(int i = 0; i < GameManagement.boat.leaks.Count; i++){
                         if(Vector2.Distance(transform.position, GameManagement.boat.leaks[i] - Vector2.left * 1.65f) < stationDistance){
+                            playAudio(repairS);
                             Debug.Log("Fix");
                             fixingDoneTime = Time.time;
                             if(GameManagement.boat.direction == 0)
@@ -148,10 +150,16 @@ public class PlayerControlls : MonoBehaviour{
             if(fixingDoneTime > 0 && Time.time >= fixingDoneTime){
                 fixingDoneTime = -1;
                 canMove = true;
+                audioData.Stop();
 
                 animator.SetInteger("anim", 2);
             }
         }
+    }
+    public void playAudio(AudioClip x)
+    {
+        audioData.clip = x;
+        audioData.Play();
     }
 
     public void activateMovement(){
