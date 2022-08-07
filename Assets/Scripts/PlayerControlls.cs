@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerControlls : MonoBehaviour{
     public float speed = 4;
-    public List<AudioSource> audios;
     public SpriteRenderer spriteRenderer;
     private AudioSource audioData;
     public AudioClip walkS;
