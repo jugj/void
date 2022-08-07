@@ -105,6 +105,7 @@ public class BoatControl : MonoBehaviour {
 	}
 
 	public void throwRocks(int count){
+		Info.showInfo("The cyclops is taking aim");
 		for(int i = 0; i < count; i++){
 			rocks.Add(new Vector3(
 				Random.value * maxRockDistance,

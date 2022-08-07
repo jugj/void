@@ -84,6 +84,7 @@ public class PlayerControlls : MonoBehaviour{
                             break;
                         }
                     }
+                    Info.showInfo("Here is no leak to fix");
                 }
                 else{
                     if(Vector3.Distance(transform.position, steeringStation.transform.position) < stationDistance){
