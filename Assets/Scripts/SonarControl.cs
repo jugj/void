@@ -43,6 +43,7 @@ public class SonarControl : MonoBehaviour{
         if(direction == 1){
             if(((RectTransform)head.transform).anchoredPosition.y <= -minNeededDepth){
                 Debug.Log("Done!");
+                GameManagement.score++;
                 GameManagement.boat.genNextDest();
                 close();
             }
